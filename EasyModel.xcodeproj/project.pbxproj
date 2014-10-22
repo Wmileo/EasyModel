@@ -14,6 +14,8 @@
 		7E954B7C19F7665D000DB135 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E954B7B19F7665D000DB135 /* Images.xcassets */; };
 		7E954B7F19F7665D000DB135 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E954B7D19F7665D000DB135 /* LaunchScreen.xib */; };
 		7E954B8B19F7665D000DB135 /* EasyModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E954B8A19F7665D000DB135 /* EasyModelTests.m */; };
+		7ECF6CA519F777310061F621 /* AIProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF6CA219F777310061F621 /* AIProperty.m */; };
+		7ECF6CA619F777310061F621 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF6CA419F777310061F621 /* BaseModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		7E954B8419F7665D000DB135 /* EasyModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E954B8919F7665D000DB135 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E954B8A19F7665D000DB135 /* EasyModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyModelTests.m; sourceTree = "<group>"; };
+		7ECF6CA119F777310061F621 /* AIProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIProperty.h; sourceTree = "<group>"; };
+		7ECF6CA219F777310061F621 /* AIProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIProperty.m; sourceTree = "<group>"; };
+		7ECF6CA319F777310061F621 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		7ECF6CA419F777310061F621 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		7E954B6D19F7665D000DB135 /* EasyModel */ = {
 			isa = PBXGroup;
 			children = (
+				7ECF6CA019F777310061F621 /* EasyModel */,
 				7E954B7219F7665D000DB135 /* AppDelegate.h */,
 				7E954B7319F7665D000DB135 /* AppDelegate.m */,
 				7E954B7519F7665D000DB135 /* ViewController.h */,
@@ -117,6 +124,17 @@
 				7E954B8919F7665D000DB135 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7ECF6CA019F777310061F621 /* EasyModel */ = {
+			isa = PBXGroup;
+			children = (
+				7ECF6CA119F777310061F621 /* AIProperty.h */,
+				7ECF6CA219F777310061F621 /* AIProperty.m */,
+				7ECF6CA319F777310061F621 /* BaseModel.h */,
+				7ECF6CA419F777310061F621 /* BaseModel.m */,
+			);
+			path = EasyModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +239,8 @@
 			files = (
 				7E954B7719F7665D000DB135 /* ViewController.m in Sources */,
 				7E954B7419F7665D000DB135 /* AppDelegate.m in Sources */,
+				7ECF6CA519F777310061F621 /* AIProperty.m in Sources */,
+				7ECF6CA619F777310061F621 /* BaseModel.m in Sources */,
 				7E954B7119F7665D000DB135 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +434,7 @@
 				7E954B9019F7665D000DB135 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7E954B9119F7665D000DB135 /* Build configuration list for PBXNativeTarget "EasyModelTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +443,7 @@
 				7E954B9319F7665D000DB135 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
