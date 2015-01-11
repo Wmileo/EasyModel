@@ -14,4 +14,6 @@
 
 -(id)initWithDic:(NSDictionary *)dic;
 
+-(void)fillModelWithDic:(NSDictionary *)dic;
+
 @end

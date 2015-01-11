@@ -15,27 +15,30 @@
     
     self = [super init];
     if (self) {
-        Class class_t = [self class];
-        u_int count;
-        objc_property_t* properties = class_copyPropertyList(class_t, &count);
+        [self fillModelWithDic:dic];
+    }
+    return self;
+}
 
-        NSArray *keys = [dic allKeys];
-        for (int i = 0; i < keys.count; i++) {
-            NSString *key = keys[i];
-            for (int j = 0; j < count ; j++)
-            {
-                objc_property_t property = properties[j];
-                NSString *property_name = [NSString  stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-                if ([property_name isEqualToString:key]) {
-                   [self setValue:dic[property_name] forKey:property_name];
-                    break;
-                }
+-(void)fillModelWithDic:(NSDictionary *)dic{
+    Class class_t = [self class];
+    u_int count;
+    objc_property_t* properties = class_copyPropertyList(class_t, &count);
+    
+    NSArray *keys = [dic allKeys];
+    for (int i = 0; i < keys.count; i++) {
+        NSString *key = keys[i];
+        for (int j = 0; j < count ; j++)
+        {
+            objc_property_t property = properties[j];
+            NSString *property_name = [NSString  stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+            if ([property_name isEqualToString:key]) {
+                [self setValue:dic[property_name] forKey:property_name];
+                break;
             }
         }
-        free(properties);
     }
-
-    return self;
+    free(properties);
 }
 
 -(NSDictionary *)modelDic{
