@@ -98,9 +98,10 @@
     for (int i = 0; i < count ; i++)
     {
         objc_property_t property = properties[i];
-        [propertyName isEqualToString:[self propertyNameWithObjc:property]];
-        property_type = [self propertyTypeWithObjc:property];
-        break;
+        if ([propertyName isEqualToString:[self propertyNameWithObjc:property]]) {
+            property_type = [self propertyTypeWithObjc:property];
+            break;
+        }
     }
     free(properties);
     
@@ -146,8 +147,12 @@
     
     id obj = change[NSKeyValueChangeNewKey];
     
-    if ([obj isEqual:[NSNull null]]) {
+    if ([obj isEqual:[NSNull null]] || ([obj isKindOfClass:[NSString class]] && [obj isEqualToString:@"<null>"])) {
+        NSLog(@"bad~~~   before -- %@",obj);
+
         obj = [self zeroValueByType:[self propertyTypeWithPropertyName:keyPath]];
+        NSLog(@"bad~~~   after  -- %@",obj);
+
     }
     
     Class class_t = [self class];

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "TestModel.h"
 
 @interface EasyModelTests : XCTestCase
 
@@ -27,7 +28,13 @@
 
 - (void)testExample {
     // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+//    XCTAssert(YES, @"Pass");
+    
+    TestModel *tm = [[TestModel alloc] init];
+    tm.stringT = @"<null>";
+    tm.intT = 9;
+    [tm setValue:@"<null>" forKey:@"intT"];
+    
 }
 
 - (void)testPerformanceExample {
