@@ -148,11 +148,8 @@
     id obj = change[NSKeyValueChangeNewKey];
     
     if ([obj isEqual:[NSNull null]] || ([obj isKindOfClass:[NSString class]] && [obj isEqualToString:@"<null>"])) {
-        NSLog(@"bad~~~   before -- %@",obj);
-
         obj = [self zeroValueByType:[self propertyTypeWithPropertyName:keyPath]];
-        NSLog(@"bad~~~   after  -- %@",obj);
-
+        [self setValue:obj forKey:keyPath];
     }
     
     Class class_t = [self class];
