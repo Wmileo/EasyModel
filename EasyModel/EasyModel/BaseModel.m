@@ -8,6 +8,7 @@
 
 #import "BaseModel.h"
 #import <objc/runtime.h>
+#import "DataTools.h"
 
 @implementation BaseModel
 
@@ -31,9 +32,14 @@
         for (int j = 0; j < count ; j++)
         {
             objc_property_t property = properties[j];
-            NSString *property_name = [NSString  stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+            NSString *property_name = [DataTools propertyNameWithObjc:property];
+            NSString *property_type = [DataTools propertyTypeWithObjc:property];
             if ([property_name isEqualToString:key]) {
-                [self setValue:dic[property_name] forKey:property_name];
+                id newValue = dic[property_name];
+                if ([DataTools isNullValueWithValue:newValue]) {
+                    newValue = [DataTools nullValueByType:property_type];
+                }
+                [self setValue:newValue forKey:property_name];
                 break;
             }
         }

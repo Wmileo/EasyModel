@@ -8,6 +8,7 @@
 
 #import "AIProperty.h"
 #import <objc/runtime.h>
+#import "DataTools.h"
 
 @implementation AIProperty
 
@@ -30,11 +31,11 @@
         
         objc_property_t property = properties[i];
         
-        NSString *property_name = [self propertyNameWithObjc:property];
+        NSString *property_name = [DataTools propertyNameWithObjc:property];
         
-        NSString *property_type = [self propertyTypeWithObjc:property];
+        NSString *property_type = [DataTools propertyTypeWithObjc:property];
         
-        id obj = [self zeroValueByType:property_type];
+        id obj = [DataTools nullValueByType:property_type];
 
         if (obj) {
             [self setValue:obj forKey:property_name];
@@ -42,70 +43,6 @@
     }
     free(properties);
     
-}
-
-#pragma mark -
-
-- (NSString *)propertyTypeWithObjc:(objc_property_t)property {
-    NSString *property_type = [NSString  stringWithCString:property_getAttributes(property) encoding:NSUTF8StringEncoding];
-    
-    NSArray *arr = [property_type componentsSeparatedByString:@","];
-    if (arr.count > 0) {
-        property_type = arr[0];
-    }else{
-        property_type = nil;
-    }
-    return property_type;
-}
-
-- (NSString *)propertyNameWithObjc:(objc_property_t)property {
-    NSString *property_name = [NSString  stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-    return property_name;
-}
-
--(id)zeroValueByType:(NSString *)type{
-
-    if([type isEqualToString:@"TB"]){
-        return @(NO);
-    }else if ([type isEqualToString:@"Tc"]) {
-        return @(NO);
-    }else if ([type isEqualToString:@"Ti"]) {
-        return @(0);
-    }else if([type isEqualToString:@"Td"]){
-        return @(0);
-    }else if([type isEqualToString:@"Tf"]){
-        return @(0);
-    }else if([type isEqualToString:@"T@\"NSString\""]){
-        return @"";
-    }else if([type isEqualToString:@"T@\"NSDictionary\""]){
-        return @{};
-    }else if([type isEqualToString:@"T@\"NSArray\""]){
-        return @[];
-    }else{
-        NSLog(@"------------------------>>>>----%@",type);
-        return nil;
-    }
-    
-}
--(NSString *)propertyTypeWithPropertyName:(NSString *)propertyName{
-    
-    NSString *property_type = nil;
-    
-    Class class_t = [self class];
-    u_int count;
-    objc_property_t* properties = class_copyPropertyList(class_t, &count);
-    
-    for (int i = 0; i < count ; i++)
-    {
-        objc_property_t property = properties[i];
-        if ([propertyName isEqualToString:[self propertyNameWithObjc:property]]) {
-            property_type = [self propertyTypeWithObjc:property];
-            break;
-        }
-    }
-    free(properties);
-    
-    return property_type;
 }
 
 -(void)loadValue{
@@ -119,14 +56,14 @@
     {
         objc_property_t property = properties[i];
 
-        NSString *property_name = [self propertyNameWithObjc:property];
+        NSString *property_name = [DataTools propertyNameWithObjc:property];
         
-        NSString *property_type = [self propertyTypeWithObjc:property];
+        NSString *property_type = [DataTools propertyTypeWithObjc:property];
         
         id obj = [config objectForKey:[self keyNameWithClassName:class_name propertyName:property_name]];
         
         if (!obj) {
-            obj = [self zeroValueByType:property_type];
+            obj = [DataTools nullValueByType:property_type];
         }
         
         if (obj) {
@@ -147,8 +84,8 @@
     
     id obj = change[NSKeyValueChangeNewKey];
     
-    if ([obj isEqual:[NSNull null]] || ([obj isKindOfClass:[NSString class]] && [obj isEqualToString:@"<null>"])) {
-        obj = [self zeroValueByType:[self propertyTypeWithPropertyName:keyPath]];
+    if ([DataTools isNullValueWithValue:obj]) {
+        obj = [DataTools nullValueByType:[DataTools propertyTypeWithPropertyName:keyPath]];
         [self setValue:obj forKey:keyPath];
     }
     

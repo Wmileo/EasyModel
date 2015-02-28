@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E1EBAC01AA16CCD003EA77E /* DataTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1EBABF1AA16CCD003EA77E /* DataTools.m */; };
 		7E72B3161A8461EA0002E965 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E72B3151A8461EA0002E965 /* TestModel.m */; };
 		7E954B7119F7665D000DB135 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E954B7019F7665D000DB135 /* main.m */; };
 		7E954B7419F7665D000DB135 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E954B7319F7665D000DB135 /* AppDelegate.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E1EBABE1AA16CCD003EA77E /* DataTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTools.h; sourceTree = "<group>"; };
+		7E1EBABF1AA16CCD003EA77E /* DataTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTools.m; sourceTree = "<group>"; };
 		7E72B3141A8461EA0002E965 /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
 		7E72B3151A8461EA0002E965 /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
 		7E954B6B19F7665D000DB135 /* EasyModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +141,8 @@
 				7ECF6CA219F777310061F621 /* AIProperty.m */,
 				7ECF6CA319F777310061F621 /* BaseModel.h */,
 				7ECF6CA419F777310061F621 /* BaseModel.m */,
+				7E1EBABE1AA16CCD003EA77E /* DataTools.h */,
+				7E1EBABF1AA16CCD003EA77E /* DataTools.m */,
 			);
 			path = EasyModel;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				TargetAttributes = {
 					7E954B6A19F7665D000DB135 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = LZ6NA3C3G7;
 					};
 					7E954B8319F7665D000DB135 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -247,6 +253,7 @@
 				7ECF6CA519F777310061F621 /* AIProperty.m in Sources */,
 				7ECF6CA619F777310061F621 /* BaseModel.m in Sources */,
 				7E954B7119F7665D000DB135 /* main.m in Sources */,
+				7E1EBAC01AA16CCD003EA77E /* DataTools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,5 +12,6 @@
 
 @property (nonatomic, assign) NSInteger intT;
 @property (nonatomic, strong) NSString *stringT;
+@property (nonatomic, readonly) NSString *stringTaaa;
 
 @end
