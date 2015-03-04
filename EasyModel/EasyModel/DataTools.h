@@ -14,7 +14,7 @@
 +(NSString *)propertyTypeWithObjc:(objc_property_t)property;
 +(NSString *)propertyNameWithObjc:(objc_property_t)property;
 +(id)nullValueByType:(NSString *)type;
-+(NSString *)propertyTypeWithPropertyName:(NSString *)propertyName;
++(NSString *)propertyTypeWithPropertyName:(NSString *)propertyName Class:(Class)aClass;
 +(BOOL)isNullValueWithValue:(id)value;
 
 @end

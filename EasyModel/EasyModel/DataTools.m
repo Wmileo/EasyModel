@@ -48,12 +48,11 @@
         return nil;
     }
 }
-+(NSString *)propertyTypeWithPropertyName:(NSString *)propertyName{
++(NSString *)propertyTypeWithPropertyName:(NSString *)propertyName Class:(__unsafe_unretained Class)aClass{
     NSString *property_type = nil;
     
-    Class class_t = [self class];
     u_int count;
-    objc_property_t* properties = class_copyPropertyList(class_t, &count);
+    objc_property_t* properties = class_copyPropertyList(aClass, &count);
     
     for (int i = 0; i < count ; i++)
     {

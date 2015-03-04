@@ -85,7 +85,7 @@
     id obj = change[NSKeyValueChangeNewKey];
     
     if ([DataTools isNullValueWithValue:obj]) {
-        obj = [DataTools nullValueByType:[DataTools propertyTypeWithPropertyName:keyPath]];
+        obj = [DataTools nullValueByType:[DataTools propertyTypeWithPropertyName:keyPath Class:[self class]]];
         [self setValue:obj forKey:keyPath];
     }
     
