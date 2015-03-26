@@ -9,6 +9,7 @@
 #import "BaseModel.h"
 #import <objc/runtime.h>
 #import "DataTools.h"
+#import "NSJSONSerialization+Addition.h"
 
 @implementation BaseModel
 
@@ -45,6 +46,32 @@
         }
     }
     free(properties);
+}
+
+-(NSDictionary *)jsonObjectDic{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:4];
+    
+    Class class_t = [self class];
+    u_int count;
+    objc_property_t* properties = class_copyPropertyList(class_t, &count);
+    for (int i = 0; i < count ; i++)
+    {
+        objc_property_t property = properties[i];
+        NSString *property_name = [DataTools propertyNameWithObjc:property];
+        id obj = [self valueForKeyPath:property_name];
+        if (obj) {
+            NSString *property_type = [DataTools propertyTypeWithObjc:property];
+            if ([DataTools isJsonType:property_type]) {
+                NSString *json = [NSJSONSerialization stringWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
+                [dic setObject:json forKey:property_name];
+            }else{
+                [dic setObject:obj forKey:property_name];
+            }
+        }
+    }
+    free(properties);
+    
+    return dic;
 }
 
 -(NSDictionary *)modelDic{

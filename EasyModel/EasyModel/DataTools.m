@@ -48,6 +48,9 @@
         return nil;
     }
 }
++(BOOL)isJsonType:(NSString *)type{
+    return [type isEqualToString:@"T@\"NSDictionary\""] || [type isEqualToString:@"T@\"NSArray\""];
+}
 +(NSString *)propertyTypeWithPropertyName:(NSString *)propertyName Class:(__unsafe_unretained Class)aClass{
     NSString *property_type = nil;
     
