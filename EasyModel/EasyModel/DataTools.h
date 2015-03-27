@@ -17,5 +17,6 @@
 +(NSString *)propertyTypeWithPropertyName:(NSString *)propertyName Class:(Class)aClass;
 +(BOOL)isNullValueWithValue:(id)value;
 +(BOOL)isJsonType:(NSString *)type;
++(NSString *)dbTypeWithType:(NSString *)type;
 
 @end

@@ -27,15 +27,17 @@
     return property_name;
 }
 +(id)nullValueByType:(NSString *)type{
-    if([type isEqualToString:@"TB"]){
+    if([type isEqualToString:@"TB"]){//BOOL bool
         return @(NO);
-    }else if ([type isEqualToString:@"Tc"]) {
+    }else if ([type isEqualToString:@"Tc"]) {//Boolean
         return @(NO);
-    }else if ([type isEqualToString:@"Ti"]) {
+    }else if ([type isEqualToString:@"Tq"]) {//NSInteger
         return @(0);
-    }else if([type isEqualToString:@"Td"]){
+    }else if ([type isEqualToString:@"Ti"]) {//int
         return @(0);
-    }else if([type isEqualToString:@"Tf"]){
+    }else if([type isEqualToString:@"Td"]){//NSTimeInterval double
+        return @(0);
+    }else if([type isEqualToString:@"Tf"]){//float
         return @(0);
     }else if([type isEqualToString:@"T@\"NSString\""]){
         return @"";
@@ -47,6 +49,17 @@
         NSLog(@"------------------------>>>>----%@",type);
         return nil;
     }
+}
++(NSString *)dbTypeWithType:(NSString *)type{
+    
+    if ([type isEqualToString:@"TB"] || [type isEqualToString:@"Tc"] || [type isEqualToString:@"Tq"] || [type isEqualToString:@"Ti"]) {
+        return @"INTEGER";
+    }else if ([type isEqualToString:@"Td"] || [type isEqualToString:@"Tf"]) {
+        return @"REAL";
+    }else if ([type isEqualToString:@"T@\"NSString\""] || [type isEqualToString:@"T@\"NSDictionary\""] || [type isEqualToString:@"T@\"NSArray\""]) {
+        return @"TEXT";
+    }
+    return nil;
 }
 +(BOOL)isJsonType:(NSString *)type{
     return [type isEqualToString:@"T@\"NSDictionary\""] || [type isEqualToString:@"T@\"NSArray\""];

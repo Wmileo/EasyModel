@@ -12,8 +12,6 @@
 
 @property (nonatomic, readonly) NSDictionary *modelDic;
 
-@property (nonatomic, readonly) NSDictionary *jsonObjectDic;
-
 -(id)initWithDic:(NSDictionary *)dic;
 
 -(void)fillModelWithDic:(NSDictionary *)dic;

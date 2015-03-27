@@ -9,7 +9,6 @@
 #import "BaseModel.h"
 #import <objc/runtime.h>
 #import "DataTools.h"
-#import "NSJSONSerialization+Addition.h"
 
 @implementation BaseModel
 
@@ -48,32 +47,6 @@
     free(properties);
 }
 
--(NSDictionary *)jsonObjectDic{
-    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:4];
-    
-    Class class_t = [self class];
-    u_int count;
-    objc_property_t* properties = class_copyPropertyList(class_t, &count);
-    for (int i = 0; i < count ; i++)
-    {
-        objc_property_t property = properties[i];
-        NSString *property_name = [DataTools propertyNameWithObjc:property];
-        id obj = [self valueForKeyPath:property_name];
-        if (obj) {
-            NSString *property_type = [DataTools propertyTypeWithObjc:property];
-            if ([DataTools isJsonType:property_type]) {
-                NSString *json = [NSJSONSerialization stringWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
-                [dic setObject:json forKey:property_name];
-            }else{
-                [dic setObject:obj forKey:property_name];
-            }
-        }
-    }
-    free(properties);
-    
-    return dic;
-}
-
 -(NSDictionary *)modelDic{
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:4];
@@ -87,6 +60,9 @@
         if ([self valueForKeyPath:property_name]) {
             [dic setObject:[self valueForKeyPath:property_name] forKey:property_name];
         }
+        
+        NSString *property_type = [DataTools propertyTypeWithObjc:properties[i]];
+        NSLog(@"%@ - %@ - %@",[DataTools nullValueByType:property_type],property_name,property_type);
     }
     free(properties);
     
