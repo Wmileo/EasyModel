@@ -10,4 +10,9 @@
 
 @implementation TestModel
 
+
+
+-(NSString *)primaryKey{
+    return @"intT";
+}
 @end

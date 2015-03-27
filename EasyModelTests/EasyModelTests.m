@@ -31,10 +31,15 @@
 //    XCTAssert(YES, @"Pass");
     
     TestModel *tm = [[TestModel alloc] init];
-    tm.stringT = @"<null>";
-    tm.intT = 9;
-    [tm setValue:@"<null>" forKey:@"intT"];
     
+//    tm.stringT = @"<null>";
+//    tm.intT = 9;
+//    [tm setValue:@"<null>" forKey:@"intT"];
+    
+    tm.arrr = @[@"aa",@"bb"];
+    tm.dicdic = @{@"cc":@"dd",@"aa":@"gg"};
+    
+    NSLog(@"%@",tm.dbColumns);
 }
 
 - (void)testPerformanceExample {

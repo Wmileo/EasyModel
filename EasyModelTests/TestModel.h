@@ -6,12 +6,14 @@
 //  Copyright (c) 2015年 ileo. All rights reserved.
 //
 
-#import "AIProperty.h"
+#import "DataBaseModel.h"
+#import <UIKit/UIKit.h>
 
-@interface TestModel : AIProperty
+@interface TestModel : DataBaseModel
 
-@property (nonatomic, assign) NSInteger intT;
-@property (nonatomic, strong) NSString *stringT;
-@property (nonatomic, readonly) NSString *stringTaaa;
+@property (nonatomic, assign) CGFloat intT;
+@property (nonatomic, strong) NSDate *stringT;
+@property (nonatomic, copy) NSArray *arrr;
+@property (nonatomic, copy) NSDictionary *dicdic;
 
 @end
