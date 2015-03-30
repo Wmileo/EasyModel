@@ -8,11 +8,21 @@
 
 #import "TestModel.h"
 
+
+@interface TestModel()
+
+@property (nonatomic, assign) NSInteger pppaiii;
+
+@end
+
 @implementation TestModel
 
-
-
--(NSString *)primaryKey{
++(NSString *)primaryKey{
     return @"intT";
 }
+
++(NSArray *)lessPropertys{
+    return @[@"arrr"];
+}
+
 @end

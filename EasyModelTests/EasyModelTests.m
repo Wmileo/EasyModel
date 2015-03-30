@@ -39,7 +39,9 @@
     tm.arrr = @[@"aa",@"bb"];
     tm.dicdic = @{@"cc":@"dd",@"aa":@"gg"};
     
-    NSLog(@"%@",tm.dbColumns);
+    NSLog(@"%@",[TestModel dbColumns]);
+    
+    
 }
 
 - (void)testPerformanceExample {

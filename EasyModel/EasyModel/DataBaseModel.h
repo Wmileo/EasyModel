@@ -11,8 +11,9 @@
 @interface DataBaseModel : BaseModel
 
 @property (nonatomic, readonly) NSDictionary *jsonObjectDic;
-@property (nonatomic, readonly) NSArray *dbColumns;
 
--(NSString *)primaryKey;
++(NSArray *)dbColumns;
++(NSString *)primaryKey;
++(NSArray *)lessPropertys;
 
 @end

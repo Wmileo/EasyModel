@@ -40,8 +40,7 @@
     return dic;
 }
 
-
--(NSArray *)dbColumns{
++(NSArray *)dbColumns{
     
     Class class_t = [self class];
     u_int count;
@@ -53,16 +52,28 @@
     {
         objc_property_t property = properties[i];
         NSString *property_name = [DataTools propertyNameWithObjc:property];
-        NSString *property_type = [DataTools propertyTypeWithObjc:property];
         
-        NSString *column_type = [DataTools dbTypeWithType:property_type];
-        if (column_type) {
-            NSMutableString *column = [NSMutableString stringWithFormat:@"%@ %@",property_name,column_type];
-            if ([property_name isEqualToString:[self primaryKey]]) {
-                [column appendFormat:@" PRIMARY KEY"];
+        BOOL isLess = NO;
+        for (NSString *name in [self lessPropertys]) {
+            if ([property_name isEqualToString:name]) {
+                isLess = YES;
+                break;
             }
-            [arr addObject:column];
         }
+        
+        if (!isLess) {
+            NSString *property_type = [DataTools propertyTypeWithObjc:property];
+            
+            NSString *column_type = [DataTools dbTypeWithType:property_type];
+            if (column_type) {
+                NSMutableString *column = [NSMutableString stringWithFormat:@"%@ %@",property_name,column_type];
+                if ([property_name isEqualToString:[self primaryKey]]) {
+                    [column appendFormat:@" PRIMARY KEY"];
+                }
+                [arr addObject:column];
+            }
+        }
+
     }
     
     free(properties);
@@ -70,8 +81,12 @@
     return arr;
 }
 
--(NSString *)primaryKey{
++(NSString *)primaryKey{
     return @"";
+}
+
++(NSArray *)lessPropertys{
+    return @[];
 }
 
 @end
