@@ -12,6 +12,8 @@
 
 @property (nonatomic, readonly) NSDictionary *jsonObjectDic;
 
+-(void)fillJsonObjectDic:(NSDictionary *)json;
+
 +(NSArray *)allColumns;
 +(NSArray *)dbColumns;
 +(NSString *)primaryKey;

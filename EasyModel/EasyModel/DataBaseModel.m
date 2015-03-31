@@ -36,8 +36,37 @@
         }
     }
     free(properties);
-    
     return dic;
+}
+
+-(void)fillJsonObjectDic:(NSDictionary *)json{
+    Class class_t = [self class];
+    u_int count;
+    objc_property_t* properties = class_copyPropertyList(class_t, &count);
+    
+    NSArray *keys = [json allKeys];
+    for (int i = 0; i < keys.count; i++) {
+        NSString *key = keys[i];
+        for (int j = 0; j < count ; j++)
+        {
+            objc_property_t property = properties[j];
+            NSString *property_name = [DataTools propertyNameWithObjc:property];
+            NSString *property_type = [DataTools propertyTypeWithObjc:property];
+            if ([property_name isEqualToString:key]) {
+                id newValue = json[property_name];
+                if ([DataTools isJsonType:property_type]) {
+                    NSData *data = [newValue dataUsingEncoding:NSUTF8StringEncoding];
+                    newValue = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                }
+                if ([DataTools isNullValueWithValue:newValue]) {
+                    newValue = [DataTools nullValueByType:property_type];
+                }
+                [self setValue:newValue forKey:property_name];
+                break;
+            }
+        }
+    }
+    free(properties);
 }
 
 +(NSArray *)allColumns{

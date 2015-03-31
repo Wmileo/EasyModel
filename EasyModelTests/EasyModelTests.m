@@ -39,6 +39,13 @@
     tm.arrr = @[@"aa",@"bb"];
     tm.dicdic = @{@"cc":@"dd",@"aa":@"gg"};
     
+    NSDictionary *dic = tm.jsonObjectDic;
+    
+    TestModel *new = [[TestModel alloc] init];
+    [new fillJsonObjectDic:dic];
+    
+    NSLog(@"%@",new.modelDic);
+    
     NSLog(@"%@",[TestModel dbColumns]);
     
     
