@@ -40,6 +40,30 @@
     return dic;
 }
 
++(NSArray *)allColumns{
+    Class class_t = [self class];
+    u_int count;
+    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:count];
+    objc_property_t* properties = class_copyPropertyList(class_t, &count);
+    for (int i = 0; i < count ; i++)
+    {
+        objc_property_t property = properties[i];
+        NSString *property_name = [DataTools propertyNameWithObjc:property];
+        BOOL isLess = NO;
+        for (NSString *name in [self lessPropertys]) {
+            if ([property_name isEqualToString:name]) {
+                isLess = YES;
+                break;
+            }
+        }
+        if (!isLess) {
+            [arr addObject:property_name];
+        }
+    }
+    free(properties);
+    return arr;
+}
+
 +(NSArray *)dbColumns{
     
     Class class_t = [self class];

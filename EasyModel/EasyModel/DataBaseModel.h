@@ -12,6 +12,7 @@
 
 @property (nonatomic, readonly) NSDictionary *jsonObjectDic;
 
++(NSArray *)allColumns;
 +(NSArray *)dbColumns;
 +(NSString *)primaryKey;
 +(NSArray *)lessPropertys;
