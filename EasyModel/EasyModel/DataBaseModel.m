@@ -17,9 +17,10 @@
     
     Class class_t = [self class];
     u_int count;
+    objc_property_t* properties = class_copyPropertyList(class_t, &count);
+    
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:count];
 
-    objc_property_t* properties = class_copyPropertyList(class_t, &count);
     for (int i = 0; i < count ; i++)
     {
         objc_property_t property = properties[i];

@@ -60,7 +60,7 @@
         if ([self valueForKeyPath:property_name]) {
             [dic setObject:[self valueForKeyPath:property_name] forKey:property_name];
         }
-        
+#warning 忘了
         NSString *property_type = [DataTools propertyTypeWithObjc:properties[i]];
         NSLog(@"%@ - %@ - %@",[DataTools nullValueByType:property_type],property_name,property_type);
     }
