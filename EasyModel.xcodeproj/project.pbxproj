@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7E1EBAC01AA16CCD003EA77E /* DataTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1EBABF1AA16CCD003EA77E /* DataTools.m */; };
+		7E3FEFB01B252C3D0003ADD4 /* AITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3FEFAF1B252C3D0003ADD4 /* AITest.m */; };
+		7E3FEFB31B254CF40003ADD4 /* AIC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3FEFB21B254CF40003ADD4 /* AIC.m */; };
 		7E72B3161A8461EA0002E965 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E72B3151A8461EA0002E965 /* TestModel.m */; };
 		7E86A7FF1AC4060000BDED8F /* NSJSONSerialization+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E86A7FE1AC4060000BDED8F /* NSJSONSerialization+Addition.m */; };
 		7E86A8021AC506AE00BDED8F /* DataBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E86A8011AC506AE00BDED8F /* DataBaseModel.m */; };
@@ -35,6 +37,10 @@
 /* Begin PBXFileReference section */
 		7E1EBABE1AA16CCD003EA77E /* DataTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTools.h; sourceTree = "<group>"; };
 		7E1EBABF1AA16CCD003EA77E /* DataTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTools.m; sourceTree = "<group>"; };
+		7E3FEFAE1B252C3D0003ADD4 /* AITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITest.h; sourceTree = "<group>"; };
+		7E3FEFAF1B252C3D0003ADD4 /* AITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITest.m; sourceTree = "<group>"; };
+		7E3FEFB11B254CF40003ADD4 /* AIC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIC.h; sourceTree = "<group>"; };
+		7E3FEFB21B254CF40003ADD4 /* AIC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIC.m; sourceTree = "<group>"; };
 		7E72B3141A8461EA0002E965 /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
 		7E72B3151A8461EA0002E965 /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
 		7E86A7FD1AC4060000BDED8F /* NSJSONSerialization+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+Addition.h"; sourceTree = "<group>"; };
@@ -125,6 +131,10 @@
 			isa = PBXGroup;
 			children = (
 				7E954B8A19F7665D000DB135 /* EasyModelTests.m */,
+				7E3FEFAE1B252C3D0003ADD4 /* AITest.h */,
+				7E3FEFAF1B252C3D0003ADD4 /* AITest.m */,
+				7E3FEFB11B254CF40003ADD4 /* AIC.h */,
+				7E3FEFB21B254CF40003ADD4 /* AIC.m */,
 				7E72B3141A8461EA0002E965 /* TestModel.h */,
 				7E72B3151A8461EA0002E965 /* TestModel.m */,
 				7E954B8819F7665D000DB135 /* Supporting Files */,
@@ -274,6 +284,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E954B8B19F7665D000DB135 /* EasyModelTests.m in Sources */,
+				7E3FEFB31B254CF40003ADD4 /* AIC.m in Sources */,
+				7E3FEFB01B252C3D0003ADD4 /* AITest.m in Sources */,
 				7E72B3161A8461EA0002E965 /* TestModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

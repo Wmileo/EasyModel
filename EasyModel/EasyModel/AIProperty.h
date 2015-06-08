@@ -11,5 +11,6 @@
 @interface AIProperty : NSObject
 
 -(void)clear;
+-(void)addSuperPropertyWithClass:(Class)superClass;
 
 @end

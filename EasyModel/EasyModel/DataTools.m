@@ -29,7 +29,7 @@
 +(id)nullValueByType:(NSString *)type{
     if([type isEqualToString:@"TB"]){//BOOL bool
         return @(NO);
-    }else if ([type isEqualToString:@"Tc"]) {//Boolean
+    }else if ([type isEqualToString:@"TC"]) {//Boolean
         return @(NO);
     }else if ([type isEqualToString:@"Tq"]) {//NSInteger
         return @(0);

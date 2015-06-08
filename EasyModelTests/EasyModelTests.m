@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "TestModel.h"
+
+#import "AITest.h"
+#import "AIC.h"
 
 @interface EasyModelTests : XCTestCase
 
@@ -30,26 +32,26 @@
     // This is an example of a functional test case.
 //    XCTAssert(YES, @"Pass");
     
-    TestModel *tm = [[TestModel alloc] init];
+//    AITest *test = [[AITest alloc] init];
+//    
+//    [test clear];
+//    
+//    test.arr = @[@"a",@"b"];
+//    test.dic = @{@"a":@[@"a",@"b"],@"b":@[@"a",@"b"]};
+//    
+//    test.model = [[TestModel alloc] init];
+//    test.f = 0.4;
+//    test.b = YES;
+//    test.i = 1;
     
-//    tm.stringT = @"<null>";
-//    tm.intT = 9;
-//    [tm setValue:@"<null>" forKey:@"intT"];
-    
-    tm.arrr = @[@"aa",@"bb"];
-    tm.dicdic = @{@"cc":@"dd",@"aa":@"gg"};
-    
-    NSDictionary *dic = tm.jsonObjectDic;
-    
-    TestModel *new = [[TestModel alloc] init];
-    [new fillJsonObjectDic:dic];
-    
-    NSLog(@"%@",new.modelDic);
-    
-    NSLog(@"%@",[TestModel dbColumns]);
+    AIC *aic = [[AIC alloc] init];
+    [aic clear];
+    aic.arr = @[@"aaaa"];
+    aic.aiccc = 5;
     
     
 }
+
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
