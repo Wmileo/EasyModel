@@ -12,9 +12,9 @@
 
 - (instancetype)init
 {
-    self = [super init];
+    self = [super initWithSuperClass:[AITest class]];
     if (self) {
-        [self addSuperPropertyWithClass:[AITest class]];
+        
     }
     return self;
 }
