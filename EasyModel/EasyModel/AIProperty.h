@@ -10,7 +10,9 @@
 
 @interface AIProperty : NSObject
 
+-(instancetype)init;
+-(instancetype)initWithSuperClass:(Class)superClass;
+
 -(void)clear;
--(void)addSuperPropertyWithClass:(Class)superClass;
 
 @end

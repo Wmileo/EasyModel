@@ -29,6 +29,15 @@
     return self;
 }
 
+-(instancetype)initWithSuperClass:(Class)superClass{
+    self = [super init];
+    if (self) {
+        [self addSuperPropertyWithClass:superClass];
+        [self loadValue];
+    }
+    return self;
+}
+
 -(void)clear{
     Class class_t = [self class];
     __weak __typeof(self) wself = self;
