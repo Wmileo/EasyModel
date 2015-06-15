@@ -18,5 +18,9 @@
     }
     return self;
 }
-
+-(NSArray *)withoutPropertys{
+    NSMutableArray *arr = [NSMutableArray arrayWithArray:[super withoutPropertys]];
+    [arr addObject:@"lflflf"];
+    return arr;
+}
 @end

@@ -13,4 +13,6 @@
 
 @property (nonatomic, assign) NSInteger aiccc;
 
+@property (nonatomic, assign) CGFloat lflflf;
+
 @end

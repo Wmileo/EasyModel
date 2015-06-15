@@ -15,4 +15,6 @@
 
 -(void)clear;
 
+-(NSArray *)withoutPropertys;
+
 @end

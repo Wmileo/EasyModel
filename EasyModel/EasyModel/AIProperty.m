@@ -58,6 +58,10 @@
     }
 }
 
+-(NSArray *)withoutPropertys{
+    return @[];
+}
+
 -(void)loadValue{
     
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
@@ -137,6 +141,9 @@
     for (int i = 0; i < count; i++) {
         objc_property_t property = properties[i];
         NSString *property_name = [DataTools propertyNameWithObjc:property];
+        if ([[self withoutPropertys] containsObject:property_name]) {
+            continue;
+        }
         NSString *property_type = [DataTools propertyTypeWithObjc:property];
         if (block) {
             block(property_name,property_type);
