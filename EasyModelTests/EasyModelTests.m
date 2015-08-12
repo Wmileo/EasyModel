@@ -43,6 +43,12 @@
 //    test.f = 0.4;
 //    test.b = YES;
 //    test.i = 1;
+    TestModel *model = [[TestModel alloc] init];
+    model.arrr = @[@1,@2];
+    
+    
+    NSLog(@"%@",model);
+    
     
     AIC *aic = [[AIC alloc] init];
     [aic clear];

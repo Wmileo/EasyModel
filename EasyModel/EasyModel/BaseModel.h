@@ -16,4 +16,6 @@
 
 -(void)fillModelWithDic:(NSDictionary *)dic;
 
+
+
 @end

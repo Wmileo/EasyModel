@@ -66,4 +66,8 @@
     return dic;
 }
 
+-(NSString *)description{
+    return [NSString stringWithFormat:@"\n---%@---\n%@",[self class],self.modelDic];
+}
+
 @end
