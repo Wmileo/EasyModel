@@ -29,7 +29,7 @@
 +(id)nullValueByType:(NSString *)type{
     if([type isEqualToString:@"TB"]){//BOOL bool
         return @(NO);
-    }else if ([type isEqualToString:@"TC"]) {//Boolean
+    }else if ([type isEqualToString:@"TC"] || [type isEqualToString:@"Tc"]) {//Boolean
         return @(NO);
     }else if ([type isEqualToString:@"Tq"]) {//NSInteger
         return @(0);
@@ -52,7 +52,7 @@
 }
 +(NSString *)dbTypeWithType:(NSString *)type{
     
-    if ([type isEqualToString:@"TB"] || [type isEqualToString:@"Tc"] || [type isEqualToString:@"Tq"] || [type isEqualToString:@"Ti"]) {
+    if ([type isEqualToString:@"TB"] || [type isEqualToString:@"Tc"] || [type isEqualToString:@"Tq"] || [type isEqualToString:@"Ti"] || [type isEqualToString:@"TC"]) {
         return @"INTEGER";
     }else if ([type isEqualToString:@"Td"] || [type isEqualToString:@"Tf"]) {
         return @"REAL";
