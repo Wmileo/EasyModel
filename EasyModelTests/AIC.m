@@ -10,17 +10,10 @@
 
 @implementation AIC
 
-- (instancetype)init
-{
-    self = [super initWithSuperClass:[AITest class]];
-    if (self) {
-        
-    }
-    return self;
-}
--(NSArray *)withoutPropertys{
-    NSMutableArray *arr = [NSMutableArray arrayWithArray:[super withoutPropertys]];
-    [arr addObject:@"lflflf"];
-    return arr;
-}
+//-(NSArray *)withoutPropertys{
+//    NSMutableArray *arr = [NSMutableArray arrayWithArray:[super withoutPropertys]];
+//    [arr addObject:@"lflflf"];
+//    return arr;
+//}
+
 @end

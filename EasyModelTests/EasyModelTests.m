@@ -43,17 +43,22 @@
 //    test.f = 0.4;
 //    test.b = YES;
 //    test.i = 1;
-    TestModel *model = [[TestModel alloc] init];
-    model.arrr = @[@1,@2];
     
     
+    TestModel *model = [[TestModel alloc] initWithDic:@{@"boo":@(1)}];
+    
+    [[AIC alloc] init];
+//    model.arrr = @[@1,@2];
+//    
+//    
     NSLog(@"%@",model);
-    
-    
-    AIC *aic = [[AIC alloc] init];
-    [aic clear];
-    aic.arr = @[@"aaaa"];
-    aic.aiccc = 5;
+//
+//    
+//    
+//    AIC *aic = [[AIC alloc] init];
+//    [aic clear];
+//    aic.arr = @[@"aaaa"];
+//    aic.aiccc = 5;
     
     
 }

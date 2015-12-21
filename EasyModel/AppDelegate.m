@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "TestModel.h"
+#import "AIC.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    TestModel *model = [[TestModel alloc] initWithDic:@{@"boo":@(YES)}];
+    
+    AIC *aic = [[AIC alloc] init];
+    
+    aic.aiccc = 8;
+    aic.lflflf = 0.1;
+    
+    //    model.arrr = @[@1,@2];
+    //
+
+    NSLog(@"%@",model);
+    
     return YES;
 }
 

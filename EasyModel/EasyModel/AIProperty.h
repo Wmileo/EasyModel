@@ -10,9 +10,6 @@
 
 @interface AIProperty : NSObject
 
--(instancetype)init;
--(instancetype)initWithSuperClass:(Class)superClass;
-
 -(void)clear;
 
 -(NSArray *)withoutPropertys;

@@ -10,51 +10,47 @@
 #import <objc/runtime.h>
 #import "DataTools.h"
 
+@interface Property : NSObject
+
+@property (nonatomic, copy) NSString *property_name;
+@property (nonatomic, copy) NSString *property_type;
+
+@end
+
+@implementation Property
+
+@end
+
 @interface AIProperty(){
-    BOOL _addSuperProperty;
-    Class _superClass;
+    NSArray *__propertys;
 }
 
 @end
 
 @implementation AIProperty
 
+-(void)dealloc{
+    for (Property *pro in __propertys) {
+        [self removeObserver:self forKeyPath:pro.property_name];
+    }
+}
+
 - (id)init
 {
     self = [super init];
     if (self) {
-        _addSuperProperty = NO;
-        [self loadValue];
-    }
-    return self;
-}
-
--(instancetype)initWithSuperClass:(Class)superClass{
-    self = [super init];
-    if (self) {
-        [self addSuperPropertyWithClass:superClass];
+        [self initPropertys];
         [self loadValue];
     }
     return self;
 }
 
 -(void)clear{
-    Class class_t = [self class];
-    __weak __typeof(self) wself = self;
-    [self enumerateObjectsFromClass:class_t UsingBlock:^(NSString *property_name, NSString *property_type) {
-        id obj = [DataTools nullValueByType:property_type];
+    for (Property *pro in __propertys) {
+        id obj = [DataTools nullValueByType:pro.property_type];
         if (obj) {
-            [wself setValue:obj forKey:property_name];
+            [self setValue:obj forKey:pro.property_name];
         }
-    }];
-    if (_addSuperProperty) {
-        Class class_t = _superClass;
-        [self enumerateObjectsFromClass:class_t UsingBlock:^(NSString *property_name, NSString *property_type) {
-            id obj = [DataTools nullValueByType:property_type];
-            if (obj) {
-                [wself setValue:obj forKey:property_name];
-            }
-        }];
     }
 }
 
@@ -68,40 +64,24 @@
     Class class_t = [self class];
     NSString *class_name = [NSString  stringWithCString:class_getName(class_t) encoding:NSUTF8StringEncoding];
     
-    __weak __typeof(self) wself = self;
-    [self enumerateObjectsFromClass:class_t UsingBlock:^(NSString *property_name, NSString *property_type) {
-        id obj = [config objectForKey:[wself keyNameWithClassName:class_name propertyName:property_name]];
+    for (Property *pro in __propertys) {
+        id obj = [config objectForKey:[self keyNameWithClassName:class_name propertyName:pro.property_name]];
         if (!obj) {
-            obj = [DataTools nullValueByType:property_type];
+            obj = [DataTools nullValueByType:pro.property_type];
         }
         if (obj) {
-            [wself setValue:obj forKey:property_name];
-            [wself addObserver:wself forKeyPath:property_name options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:(__bridge void *)(class_t)];
+            [self setValue:obj forKey:pro.property_name];
+            [self addObserver:self forKeyPath:pro.property_name options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:(__bridge void *)(class_t)];
         }
-    }];
-    
+    }
 }
 
--(void)addSuperPropertyWithClass:(Class)superClass{
-    
-    _addSuperProperty = YES;
-    _superClass = superClass;
-    
-    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-    NSString *class_name = [NSString  stringWithCString:class_getName([self class]) encoding:NSUTF8StringEncoding];
-    
-    __weak __typeof(self) wself = self;
-    [self enumerateObjectsFromClass:superClass UsingBlock:^(NSString *property_name, NSString *property_type) {
-        id obj = [config objectForKey:[wself keyNameWithClassName:class_name propertyName:property_name]];
-        if (!obj) {
-            obj = [DataTools nullValueByType:property_type];
-        }
-        if (obj) {
-            [wself setValue:obj forKey:property_name];
-            [wself addObserver:wself forKeyPath:property_name options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:(__bridge void *)(superClass)];
-        }
+-(void)initPropertys{
+    NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:3];
+    [self enumerateObjectsFromClass:[self class] UsingBlock:^(Property *property) {
+        [tmp addObject:property];
     }];
-
+    __propertys = [tmp copy];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
@@ -135,7 +115,7 @@
     return [NSString stringWithFormat:@"%@_%@",className,propertyName];
 }
 
--(void)enumerateObjectsFromClass:(Class)aClass UsingBlock:(void(^)(NSString *property_name, NSString *property_type))block{
+-(void)enumerateObjectsFromClass:(Class)aClass UsingBlock:(void(^)(Property *property))block{
     u_int count;
     objc_property_t *properties = class_copyPropertyList(aClass, &count);
     for (int i = 0; i < count; i++) {
@@ -146,7 +126,10 @@
         }
         NSString *property_type = [DataTools propertyTypeWithObjc:property];
         if (block) {
-            block(property_name,property_type);
+            Property *pro = [[Property alloc] init];
+            pro.property_name = property_name;
+            pro.property_type = property_type;
+            block(pro);
         }
     }
     free(properties);

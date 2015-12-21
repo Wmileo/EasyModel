@@ -8,7 +8,7 @@
 
 #import "AITest.h"
 
-@interface AIC : AITest
+@interface AIC : AIProperty
 
 
 @property (nonatomic, assign) NSInteger aiccc;

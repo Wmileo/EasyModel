@@ -12,6 +12,8 @@
 @interface TestModel : DataBaseModel
 
 @property (nonatomic, assign) CGFloat intT;
+@property (nonatomic, assign) BOOL boo;
+
 @property (nonatomic, strong) NSDate *stringT;
 @property (nonatomic, copy) NSArray *arrr;
 @property (nonatomic, copy) NSDictionary *dicdic;

@@ -11,10 +11,10 @@
 @implementation AITest
 
 
--(NSArray *)withoutPropertys{
-    NSMutableArray *arr = [NSMutableArray arrayWithArray:[super withoutPropertys]];
-//    [arr addObject:@"arr"];
-    return arr;
-}
+//-(NSArray *)withoutPropertys{
+//    NSMutableArray *arr = [NSMutableArray arrayWithArray:[super withoutPropertys]];
+////    [arr addObject:@"arr"];
+//    return arr;
+//}
 
 @end
