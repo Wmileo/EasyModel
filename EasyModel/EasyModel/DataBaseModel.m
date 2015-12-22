@@ -24,10 +24,10 @@
     for (int i = 0; i < count ; i++)
     {
         objc_property_t property = properties[i];
-        NSString *property_name = [DataTools propertyNameWithObjc:property];
+        NSString *property_name = [DataTools nameWithProperty:property];
         id obj = [self valueForKeyPath:property_name];
         if (obj) {
-            NSString *property_type = [DataTools propertyTypeWithObjc:property];
+            NSString *property_type = [DataTools typeWithProperty:property];
             if ([DataTools isJsonType:property_type]) {
                 NSString *json = [NSJSONSerialization stringWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
                 [dic setObject:json forKey:property_name];
@@ -51,8 +51,8 @@
         for (int j = 0; j < count ; j++)
         {
             objc_property_t property = properties[j];
-            NSString *property_name = [DataTools propertyNameWithObjc:property];
-            NSString *property_type = [DataTools propertyTypeWithObjc:property];
+            NSString *property_name = [DataTools nameWithProperty:property];
+            NSString *property_type = [DataTools typeWithProperty:property];
             if ([property_name isEqualToString:key]) {
                 id newValue = json[property_name];
                 if ([DataTools isJsonType:property_type]) {
@@ -78,7 +78,7 @@
     for (int i = 0; i < count ; i++)
     {
         objc_property_t property = properties[i];
-        NSString *property_name = [DataTools propertyNameWithObjc:property];
+        NSString *property_name = [DataTools nameWithProperty:property];
         BOOL isLess = NO;
         for (NSString *name in [self lessPropertys]) {
             if ([property_name isEqualToString:name]) {
@@ -104,7 +104,7 @@
     for (int i = 0; i < count ; i++)
     {
         objc_property_t property = properties[i];
-        NSString *property_name = [DataTools propertyNameWithObjc:property];
+        NSString *property_name = [DataTools nameWithProperty:property];
         
         BOOL isLess = NO;
         for (NSString *name in [self lessPropertys]) {
@@ -115,7 +115,7 @@
         }
         
         if (!isLess) {
-            NSString *property_type = [DataTools propertyTypeWithObjc:property];
+            NSString *property_type = [DataTools typeWithProperty:property];
             
             NSString *column_type = [DataTools dbTypeWithType:property_type];
             if (column_type) {

@@ -10,9 +10,8 @@
 
 @interface AIC : AIProperty
 
-
 @property (nonatomic, assign) NSInteger aiccc;
 
-@property (nonatomic, assign) CGFloat lflflf;
+@property (readonly) CGFloat lflflf;
 
 @end

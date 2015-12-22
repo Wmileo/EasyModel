@@ -10,7 +10,13 @@
 
 @implementation DataTools
 
-+(NSString *)propertyTypeWithObjc:(objc_property_t)property{
++(BOOL)isReadOnlyWithProperty:(objc_property_t)property{
+    NSString *property_type = [NSString  stringWithCString:property_getAttributes(property) encoding:NSUTF8StringEncoding];
+    NSArray *arr = [property_type componentsSeparatedByString:@","];
+    return [arr containsObject:@"R"];
+}
+
++(NSString *)typeWithProperty:(objc_property_t)property{
     NSString *property_type = [NSString  stringWithCString:property_getAttributes(property) encoding:NSUTF8StringEncoding];
     
     NSArray *arr = [property_type componentsSeparatedByString:@","];
@@ -22,7 +28,7 @@
     }
     return property_type;
 }
-+(NSString *)propertyNameWithObjc:(objc_property_t)property{
++(NSString *)nameWithProperty:(objc_property_t)property{
     NSString *property_name = [NSString  stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
     return property_name;
 }
@@ -73,8 +79,8 @@
     for (int i = 0; i < count ; i++)
     {
         objc_property_t property = properties[i];
-        if ([propertyName isEqualToString:[DataTools propertyNameWithObjc:property]]) {
-            property_type = [DataTools propertyTypeWithObjc:property];
+        if ([propertyName isEqualToString:[DataTools nameWithProperty:property]]) {
+            property_type = [DataTools typeWithProperty:property];
             break;
         }
     }

@@ -11,8 +11,9 @@
 
 @interface DataTools : NSObject
 
-+(NSString *)propertyTypeWithObjc:(objc_property_t)property;
-+(NSString *)propertyNameWithObjc:(objc_property_t)property;
++(BOOL)isReadOnlyWithProperty:(objc_property_t)property;
++(NSString *)typeWithProperty:(objc_property_t)property;
++(NSString *)nameWithProperty:(objc_property_t)property;
 +(id)nullValueByType:(NSString *)type;
 +(NSString *)propertyTypeWithPropertyName:(NSString *)propertyName Class:(Class)aClass;
 +(BOOL)isNullValueWithValue:(id)value;

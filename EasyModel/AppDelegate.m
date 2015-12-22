@@ -25,7 +25,7 @@
     AIC *aic = [[AIC alloc] init];
     
     aic.aiccc = 8;
-    aic.lflflf = 0.1;
+//    aic.lflflf = 0.1;
     
     //    model.arrr = @[@1,@2];
     //

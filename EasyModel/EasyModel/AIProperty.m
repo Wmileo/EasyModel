@@ -120,11 +120,11 @@
     objc_property_t *properties = class_copyPropertyList(aClass, &count);
     for (int i = 0; i < count; i++) {
         objc_property_t property = properties[i];
-        NSString *property_name = [DataTools propertyNameWithObjc:property];
-        if ([[self withoutPropertys] containsObject:property_name]) {
+        NSString *property_name = [DataTools nameWithProperty:property];
+        if ([[self withoutPropertys] containsObject:property_name] || [DataTools isReadOnlyWithProperty:property]) {
             continue;
         }
-        NSString *property_type = [DataTools propertyTypeWithObjc:property];
+        NSString *property_type = [DataTools typeWithProperty:property];
         if (block) {
             Property *pro = [[Property alloc] init];
             pro.property_name = property_name;

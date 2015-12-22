@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "EasyModel"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "EasyModel : AIProperty ,BaseModel"
   s.description  = <<-DESC
 					 Include AIProperty and BaseModel

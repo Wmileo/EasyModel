@@ -32,8 +32,8 @@
         for (int j = 0; j < count ; j++)
         {
             objc_property_t property = properties[j];
-            NSString *property_name = [DataTools propertyNameWithObjc:property];
-            NSString *property_type = [DataTools propertyTypeWithObjc:property];
+            NSString *property_name = [DataTools nameWithProperty:property];
+            NSString *property_type = [DataTools typeWithProperty:property];
             if ([property_name isEqualToString:key]) {
                 id newValue = dic[property_name];
                 if ([DataTools isNullValueWithValue:newValue]) {
