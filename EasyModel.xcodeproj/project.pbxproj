@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7E1EBAC01AA16CCD003EA77E /* DataTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1EBABF1AA16CCD003EA77E /* DataTools.m */; };
-		7E3FEFB01B252C3D0003ADD4 /* AITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3FEFAF1B252C3D0003ADD4 /* AITest.m */; };
-		7E3FEFB31B254CF40003ADD4 /* AIC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3FEFB21B254CF40003ADD4 /* AIC.m */; };
 		7E72B3161A8461EA0002E965 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E72B3151A8461EA0002E965 /* TestModel.m */; };
 		7E86A7FF1AC4060000BDED8F /* NSJSONSerialization+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E86A7FE1AC4060000BDED8F /* NSJSONSerialization+Addition.m */; };
 		7E86A8021AC506AE00BDED8F /* DataBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E86A8011AC506AE00BDED8F /* DataBaseModel.m */; };
@@ -21,10 +19,7 @@
 		7E954B7F19F7665D000DB135 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E954B7D19F7665D000DB135 /* LaunchScreen.xib */; };
 		7E954B8B19F7665D000DB135 /* EasyModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E954B8A19F7665D000DB135 /* EasyModelTests.m */; };
 		7E960D891B91A55700D69E28 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E72B3151A8461EA0002E965 /* TestModel.m */; };
-		7ECF6CA519F777310061F621 /* AIProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF6CA219F777310061F621 /* AIProperty.m */; };
 		7ECF6CA619F777310061F621 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF6CA419F777310061F621 /* BaseModel.m */; };
-		7EEC89041C27E70E008B1711 /* AITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3FEFAF1B252C3D0003ADD4 /* AITest.m */; };
-		7EEC89051C27E711008B1711 /* AIC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3FEFB21B254CF40003ADD4 /* AIC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +35,6 @@
 /* Begin PBXFileReference section */
 		7E1EBABE1AA16CCD003EA77E /* DataTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTools.h; sourceTree = "<group>"; };
 		7E1EBABF1AA16CCD003EA77E /* DataTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTools.m; sourceTree = "<group>"; };
-		7E3FEFAE1B252C3D0003ADD4 /* AITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AITest.h; path = EasyModelTests/AITest.h; sourceTree = SOURCE_ROOT; };
-		7E3FEFAF1B252C3D0003ADD4 /* AITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AITest.m; path = EasyModelTests/AITest.m; sourceTree = SOURCE_ROOT; };
-		7E3FEFB11B254CF40003ADD4 /* AIC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIC.h; path = EasyModelTests/AIC.h; sourceTree = SOURCE_ROOT; };
-		7E3FEFB21B254CF40003ADD4 /* AIC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIC.m; path = EasyModelTests/AIC.m; sourceTree = SOURCE_ROOT; };
 		7E72B3141A8461EA0002E965 /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
 		7E72B3151A8461EA0002E965 /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
 		7E86A7FD1AC4060000BDED8F /* NSJSONSerialization+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+Addition.h"; sourceTree = "<group>"; };
@@ -63,8 +54,6 @@
 		7E954B8419F7665D000DB135 /* EasyModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E954B8919F7665D000DB135 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E954B8A19F7665D000DB135 /* EasyModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyModelTests.m; sourceTree = "<group>"; };
-		7ECF6CA119F777310061F621 /* AIProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIProperty.h; sourceTree = "<group>"; };
-		7ECF6CA219F777310061F621 /* AIProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIProperty.m; sourceTree = "<group>"; };
 		7ECF6CA319F777310061F621 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		7ECF6CA419F777310061F621 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,10 +125,6 @@
 				7E954B8A19F7665D000DB135 /* EasyModelTests.m */,
 				7E72B3141A8461EA0002E965 /* TestModel.h */,
 				7E72B3151A8461EA0002E965 /* TestModel.m */,
-				7E3FEFAE1B252C3D0003ADD4 /* AITest.h */,
-				7E3FEFAF1B252C3D0003ADD4 /* AITest.m */,
-				7E3FEFB11B254CF40003ADD4 /* AIC.h */,
-				7E3FEFB21B254CF40003ADD4 /* AIC.m */,
 				7E954B8819F7665D000DB135 /* Supporting Files */,
 			);
 			path = EasyModelTests;
@@ -156,8 +141,6 @@
 		7ECF6CA019F777310061F621 /* EasyModel */ = {
 			isa = PBXGroup;
 			children = (
-				7ECF6CA119F777310061F621 /* AIProperty.h */,
-				7ECF6CA219F777310061F621 /* AIProperty.m */,
 				7ECF6CA319F777310061F621 /* BaseModel.h */,
 				7ECF6CA419F777310061F621 /* BaseModel.m */,
 				7E86A8001AC506AE00BDED8F /* DataBaseModel.h */,
@@ -271,17 +254,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EEC89051C27E711008B1711 /* AIC.m in Sources */,
 				7E86A8021AC506AE00BDED8F /* DataBaseModel.m in Sources */,
 				7E954B7719F7665D000DB135 /* ViewController.m in Sources */,
 				7E954B7419F7665D000DB135 /* AppDelegate.m in Sources */,
-				7ECF6CA519F777310061F621 /* AIProperty.m in Sources */,
 				7ECF6CA619F777310061F621 /* BaseModel.m in Sources */,
 				7E954B7119F7665D000DB135 /* main.m in Sources */,
 				7E960D891B91A55700D69E28 /* TestModel.m in Sources */,
 				7E1EBAC01AA16CCD003EA77E /* DataTools.m in Sources */,
 				7E86A7FF1AC4060000BDED8F /* NSJSONSerialization+Addition.m in Sources */,
-				7EEC89041C27E70E008B1711 /* AITest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E954B8B19F7665D000DB135 /* EasyModelTests.m in Sources */,
-				7E3FEFB31B254CF40003ADD4 /* AIC.m in Sources */,
-				7E3FEFB01B252C3D0003ADD4 /* AITest.m in Sources */,
 				7E72B3161A8461EA0002E965 /* TestModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

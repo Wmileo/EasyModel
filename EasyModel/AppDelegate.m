@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "TestModel.h"
-#import "AIC.h"
 
 @interface AppDelegate ()
 
@@ -22,9 +21,7 @@
     
     TestModel *model = [[TestModel alloc] initWithDic:@{@"boo":@(YES)}];
     
-    AIC *aic = [[AIC alloc] init];
-    
-    aic.aiccc = 8;
+
 //    aic.lflflf = 0.1;
     
     //    model.arrr = @[@1,@2];
